@@ -22,7 +22,7 @@ runs:
   using: 'composite'
   steps:
     - name: 'Run Go Mod Check Action'
-      run: docker run -d -p 6650:6650 -p 8080:8080 apachepulsar/pulsar:2.10.1 /pulsar/bin/pulsar standalone --no-functions-worker --no-stream-storage
+      run: docker run --name pulsar -p 6650:6650 -p 8080:8080 -d apachepulsar/pulsar:2.10.1 /pulsar/bin/pulsar standalone --no-functions-worker --no-stream-storage
       shell: bash
     - name: wait pulsar start
       uses: shoothzj/host-available-check-action@v1
