@@ -22,7 +22,7 @@ runs:
   using: 'composite'
   steps:
     - name: 'Run Go Mod Check Action'
-      run: bash $GITHUB_ACTION_PATH/start-pulsar.sh
+      run: bash $GITHUB_ACTION_PATH/start_pulsar.sh
       shell: bash
     - name: wait pulsar start
       uses: shoothzj/host-available-check-action@v1
