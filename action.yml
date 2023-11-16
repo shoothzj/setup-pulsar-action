@@ -1,27 +1,10 @@
-name: 'Host Available Check Action'
-description: 'Checks if a host is available'
-
-inputs:
-  check_type:
-    description: 'The type of check to perform'
-    required: true
-  check_timeout:
-    description: 'The maximum amount of time to wait for a check to complete, in seconds'
-    required: false
-  check_http_port:
-    description: 'The HTTP port to check, if performing an HTTP check'
-    required: false
-  check_http_path:
-    description: 'The HTTP path to check, if performing an HTTP check'
-    required: false
-  check_tcp_port:
-    description: 'The TCP port to check, if performing an TCP check'
-    required: false
+name: 'Setup Pulsar Action'
+description: 'Setup a Pulsar Server'
 
 runs:
   using: 'composite'
   steps:
-    - name: 'Run Go Mod Check Action'
+    - name: start pulsar
       run: bash $GITHUB_ACTION_PATH/start_pulsar.sh
       shell: bash
     - name: wait pulsar start
